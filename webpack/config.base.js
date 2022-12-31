@@ -1,7 +1,7 @@
-/**
+/*
  * @Author: fantiga
  * @Date: 2022-12-24 18:01:25
- * @LastEditTime: 2022-12-24 18:24:43
+ * @LastEditTime: 2022-12-31 15:01:37
  * @LastEditors: fantiga
  * @FilePath: /leaderboard-react-ts/webpack/config.base.js
  */
@@ -28,6 +28,7 @@ const baseConfig = {
     },
     publicPath: '/',
   },
+  devtool: 'source-map',
   /** Specify the modules to be used when webpack packs / 指定webpack打包时要用的模块 */
   module: {
     /** Specifies the rules to load / 指定要加载的规则 */

@@ -35,6 +35,7 @@ const config = {
     },
     publicPath: '',
   },
+  devtool: 'source-map',
   /** Specify the modules to be used when webpack packs / 指定webpack打包时要用的模块 */
   module: {
     /** Specifies the rules to load / 指定要加载的规则 */
@@ -157,6 +158,7 @@ const config = {
       '@components': path.resolve(__dirname, './src/components'),
       '@scss': path.resolve(__dirname, './src/scss'),
       '@utils': path.resolve(__dirname, './src/utils'),
+      '@data': path.resolve(__dirname, './src/data'),
     },
   },
   /** Configure the webpack plugin / 配置webpack插件 */
