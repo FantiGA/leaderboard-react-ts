@@ -5,7 +5,6 @@
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 - [leaderboard-react-ts](#leaderboard-react-ts)
-  - [多语言](#多语言)
   - [架构](#架构)
   - [策略](#策略)
   - [维护者](#维护者)
@@ -16,11 +15,6 @@
 这是一个使用 React 和 styled-components，根据随机生成的分数，实现给主播实时排行榜功能的演示项目。
 
 [演示](https://fantiga.github.io/leaderboard-react-ts/dist/)
-
-## 多语言
-
-- [English](README.md)
-- [简体中文](README.zh-CN.md)
 
 ## 架构
 

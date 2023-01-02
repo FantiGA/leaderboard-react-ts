@@ -5,7 +5,6 @@
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 - [leaderboard-react-ts](#leaderboard-react-ts)
-  - [Multi-language](#multi-language)
   - [Architecture](#architecture)
   - [Strategies](#strategies)
   - [Maintainers](#maintainers)
@@ -16,8 +15,6 @@ Welcome.
 This is a demo that uses React and styled-components to implement real-time leaderboard for streamers based on randomly generated scores.
 
 [Demo](https://fantiga.github.io/leaderboard-react-ts/dist/)
-
-## Multi-language
 
 ## Architecture
 
