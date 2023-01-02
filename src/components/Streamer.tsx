@@ -1,7 +1,7 @@
 /*
  * @Author: fantiga
  * @Date: 2022-12-25 15:18:46
- * @LastEditTime: 2023-01-02 19:01:00
+ * @LastEditTime: 2023-01-02 19:15:45
  * @LastEditors: fantiga
  * @FilePath: /leaderboard-react-ts/src/components/Streamer.tsx
  */
@@ -92,9 +92,9 @@ const StreamerContainer: FC = () => {
         const reSortedData = calculateRank(modifiedData);
 
         modifiedData.forEach(item => {
-          const rankedUser = reSortedData.find(x => x.userID === item.userID);
-          item.preRank = rankedUser?.preRank || 0;
-          item.rank = rankedUser?.rank || 0;
+          const rankedStreamer = reSortedData.find(x => x.userID === item.userID);
+          item.preRank = rankedStreamer?.preRank || 0;
+          item.rank = rankedStreamer?.rank || 0;
         });
 
         setStreamerData(modifiedData);

@@ -11,8 +11,6 @@ import { createRoot } from 'react-dom/client';
 
 import IndexContainer from './pages/Index';
 
-import './index.scss';
-
 /**
  * React 18
  */

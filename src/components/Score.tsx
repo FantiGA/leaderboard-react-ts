@@ -1,12 +1,12 @@
 /*
  * @Author: fantiga
  * @Date: 2023-01-01 18:48:48
- * @LastEditTime: 2023-01-02 19:10:37
+ * @LastEditTime: 2023-01-02 19:14:01
  * @LastEditors: fantiga
  * @FilePath: /leaderboard-react-ts/src/components/Score.tsx
  */
 
-import { FC, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { FC, useLayoutEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 import { IScoreContainer, IScoreUI } from '@utils/interface';
