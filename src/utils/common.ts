@@ -1,7 +1,7 @@
 /*
  * @Author: fantiga
  * @Date: 2022-12-31 15:43:01
- * @LastEditTime: 2023-01-01 21:48:30
+ * @LastEditTime: 2023-01-02 18:25:06
  * @LastEditors: fantiga
  * @FilePath: /leaderboard-react-ts/src/utils/common.ts
  */
@@ -46,15 +46,22 @@ export const randomScore = (data: IResult[]): IResult[] => {
   /** Calculate the new score. / 计算新的score。 */
   newData2[0].score += getRandomInt(-1000, 10000);
 
-  let newData: IResult[] = [];
-  reSort([...newData1, newData2[0]]).map((item, index) => {
-    // item.preRank = item.rank;
-    item.rank = index;
-    newData = [...newData, item];
-  });
-
-  return newData;
+  return [...newData1, newData2[0]];
 };
+
+/**
+ * @description: Recalculate ranking / 重新计算排名
+ * @param {IResult} data
+ * @return {*}
+ */
+export const calculateRank = (data: IResult[]): IResult[] => (
+  reSort([...data])
+    .map((item, index) => ({
+      ...item,
+      preRank: item.rank,
+      rank: index
+    }))
+);
 
 /**
  * @description: Get data asynchronously / 异步获取数据

@@ -1,16 +1,16 @@
 /*
  * @Author: fantiga
  * @Date: 2022-12-25 15:18:46
- * @LastEditTime: 2023-01-01 22:29:22
+ * @LastEditTime: 2023-01-02 19:01:00
  * @LastEditors: fantiga
  * @FilePath: /leaderboard-react-ts/src/components/Streamer.tsx
  */
 
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { IResult, IStreamer } from '@utils/interface';
-import { getData, randomScore } from '@utils/common';
+import { calculateRank, getData, randomScore } from '@utils/common';
 
 import ScoreContainer from './Score';
 
@@ -75,24 +75,31 @@ const StreamerContainer: FC = () => {
    */
   useEffect(() => {
     if (!streamerData.length) {
-      getData().then(data => setStreamerData(randomScore(data)));
+      getData().then(data => setStreamerData(calculateRank(data)));
     }
   }, []);
 
   /**
    * @description:
-   * Timed calls, with an interval of 400 milliseconds.
-   * 定时调用，间隔400毫秒。
+   * Timed calls, with an interval of 3 seconds.
+   * 定时调用，间隔3秒。
    * @return {*}
    */
-  useEffect(() => {
-    // const interval = setInterval(() => setStreamerData(randomScore(streamerData)), 400);
+  useLayoutEffect(() => {
     const interval = setInterval(() => {
-      // if (streamerData.length) {
-      // randomScore(streamerData);
-      setStreamerData(randomScore(streamerData));
-      // }
-    }, 2000);
+      if (streamerData.length) {
+        const modifiedData = randomScore(streamerData);
+        const reSortedData = calculateRank(modifiedData);
+
+        modifiedData.forEach(item => {
+          const rankedUser = reSortedData.find(x => x.userID === item.userID);
+          item.preRank = rankedUser?.preRank || 0;
+          item.rank = rankedUser?.rank || 0;
+        });
+
+        setStreamerData(modifiedData);
+      }
+    }, 3000);
     return () => clearInterval(interval);
   }, [streamerData]);
 

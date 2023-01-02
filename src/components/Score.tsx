@@ -1,12 +1,12 @@
 /*
  * @Author: fantiga
  * @Date: 2023-01-01 18:48:48
- * @LastEditTime: 2023-01-01 20:45:12
+ * @LastEditTime: 2023-01-02 19:10:37
  * @LastEditors: fantiga
  * @FilePath: /leaderboard-react-ts/src/components/Score.tsx
  */
 
-import { FC, useEffect, useMemo, useState } from 'react';
+import { FC, useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
 import { IScoreContainer, IScoreUI } from '@utils/interface';
@@ -15,12 +15,9 @@ const ScoreUI = styled.span`
   text-align: right;
   margin-left: .5em;
   flex-grow: 1;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  transition-duration: 1s;
 `;
 
-const Score: FC<IScoreUI> = ({ displayScore }) => <ScoreUI>{displayScore}</ScoreUI>;
+const Score: FC<IScoreUI> = ({ displayScore }) => <ScoreUI>{displayScore}pt</ScoreUI>;
 
 const ScoreContainer: FC<IScoreContainer> = ({ score, preScore }) => {
   const [displayScore, setDisplayScore] = useState<number>(score);
@@ -30,7 +27,7 @@ const ScoreContainer: FC<IScoreContainer> = ({ score, preScore }) => {
     return temp ? temp : 1;
   }, [preScore, score]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (score === preScore || preScore === 0) return;
     const scoreAnimation = requestAnimationFrame(() => {
       if (preScore && displayScore + diff <= score) {
