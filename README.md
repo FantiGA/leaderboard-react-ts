@@ -37,7 +37,6 @@ This is a demo that uses React and styled-components to implement real-time lead
  10. It is set to calculate a random score for a random element every `3` seconds, and reorder at the same time.
  11. Cumulative time spent: about `33` hours.
 
-
 ## Maintainers
 
 [@FantiGA](https://github.com/FantiGA)
@@ -45,4 +44,3 @@ This is a demo that uses React and styled-components to implement real-time lead
 ## License
 
 [MIT](LICENSE)  © 2023 [@FantiGA](https://github.com/FantiGA)
-
